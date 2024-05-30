@@ -1,0 +1,31 @@
+import cv2
+
+video = "taymer_thirty.mp4"  # путь только из англ. символов
+video1 = cv2.VideoCapture(video)
+
+while True:
+    success, image = video1.read()
+
+    if not success:
+        print('нету видео')
+        break
+
+    cv2.imshow('rere', image)
+
+    key = cv2.waitKey(10) & 0x47
+    # waitKey - задержка между кадрами
+    # 0x47 - g по Unicode
+    if key == ord('g'):
+        print('Кнопка g нажана')
+        break
+
+
+video1.release()
+cv2.destroyAllWindows()
+
+
+
+
+
+
+
